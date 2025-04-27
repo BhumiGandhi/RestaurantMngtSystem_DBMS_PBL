@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Team - HotChix</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/staff-registration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="logo">
+            <img src="/placeholder.svg?height=60&width=180" alt="HotChix Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#menu">Menu</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="staff-registration.html" class="active">Join Our Team</a></li>
+            <li><a href="#" class="book-table">Book a Table</a></li>
+        </ul>
+        <div class="user-profile">
+            <span id="user-name">Guest</span>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <!-- Staff Registration Header -->
+    <header class="staff-header">
+        <div class="staff-overlay"></div>
+        <div class="staff-title">
+            <h1>Join Our Culinary Team</h1>
+            <div class="divider"></div>
+            <p>Be a part of our journey in redefining vegetarian luxury dining</p>
+        </div>
+    </header>
+
+    <!-- Registration Section -->
+    <section class="registration-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Role</h2>
+                <div class="divider"></div>
+                <p>Select the position you'd like to apply for</p>
+            </div>
+
+            <div class="role-tabs">
+                <button class="role-tab active" data-role="chef">Chef</button>
+                <button class="role-tab" data-role="waiter">Waiter</button>
+                <button class="role-tab" data-role="manager">Manager</button>
+            </div>
+
+            <!-- Chef Registration Form -->
+            <div class="registration-form chef-form active">
+                <h3>Chef Registration</h3>
+                <form id="chef-form">
+                    <div class="form-group">
+                        <label for="chef-name">Full Name</label>
+                        <input type="text" id="chef-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chef-email">Email</label>
+                        <input type="email" id="chef-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chef-contact">Contact Number</label>
+                        <input type="tel" id="chef-contact" name="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chef-speciality">Cuisine Speciality</label>
+                        <select id="chef-speciality" name="speciality" required>
+                            <option value="">Select Speciality</option>
+                            <option value="North Indian">North Indian</option>
+                            <option value="South Indian">South Indian</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Mexican">Mexican</option>
+                            <option value="Continental">Continental</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="chef-experience">Years of Experience</label>
+                        <input type="number" id="chef-experience" name="experience" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chef-shift">Preferred Shift</label>
+                        <select id="chef-shift" name="shift" required>
+                            <option value="">Select Shift</option>
+                            <option value="morning">Morning</option>
+                            <option value="evening">Evening</option>
+                            <option value="night">Night</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="chef-password">Password</label>
+                        <input type="password" id="chef-password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chef-confirm-password">Confirm Password</label>
+                        <input type="password" id="chef-confirm-password" name="confirm-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chef-resume">Upload Resume (PDF)</label>
+                        <input type="file" id="chef-resume" name="resume" accept=".pdf" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Register as Chef</button>
+                </form>
+            </div>
+
+            <!-- Waiter Registration Form -->
+            <div class="registration-form waiter-form">
+                <h3>Waiter Registration</h3>
+                <form id="waiter-form">
+                    <div class="form-group">
+                        <label for="waiter-name">Full Name</label>
+                        <input type="text" id="waiter-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="waiter-email">Email</label>
+                        <input type="email" id="waiter-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="waiter-contact">Contact Number</label>
+                        <input type="tel" id="waiter-contact" name="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="waiter-experience">Years of Experience</label>
+                        <input type="number" id="waiter-experience" name="experience" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="waiter-shift">Preferred Shift</label>
+                        <select id="waiter-shift" name="shift" required>
+                            <option value="">Select Shift</option>
+                            <option value="morning">Morning</option>
+                            <option value="evening">Evening</option>
+                            <option value="night">Night</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="waiter-password">Password</label>
+                        <input type="password" id="waiter-password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="waiter-confirm-password">Confirm Password</label>
+                        <input type="password" id="waiter-confirm-password" name="confirm-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="waiter-resume">Upload Resume (PDF)</label>
+                        <input type="file" id="waiter-resume" name="resume" accept=".pdf" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Register as Waiter</button>
+                </form>
+            </div>
+
+            <!-- Manager Registration Form -->
+            <div class="registration-form manager-form">
+                <h3>Manager Registration</h3>
+                <form id="manager-form">
+                    <div class="form-group">
+                        <label for="manager-name">Full Name</label>
+                        <input type="text" id="manager-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="manager-email">Email</label>
+                        <input type="email" id="manager-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="manager-contact">Contact Number</label>
+                        <input type="tel" id="manager-contact" name="contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="manager-role">Role</label>
+                        <select id="manager-role" name="role" required>
+                            <option value="">Select Role</option>
+                            <option value="manager">Restaurant Manager</option>
+                            <option value="admin">Admin</option>
+                            <option value="receptionist">Receptionist</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="manager-experience">Years of Experience</label>
+                        <input type="number" id="manager-experience" name="experience" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="manager-password">Password</label>
+                        <input type="password" id="manager-password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="manager-confirm-password">Confirm Password</label>
+                        <input type="password" id="manager-confirm-password" name="confirm-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="manager-resume">Upload Resume (PDF)</label>
+                        <input type="file" id="manager-resume" name="resume" accept=".pdf" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Register as Manager</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section class="why-join-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Join HotChix?</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Professional Growth</h3>
+                    <p>Opportunities to learn and advance your culinary or hospitality career with training and mentorship</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaborative Team</h3>
+                    <p>Work with passionate professionals in a supportive and creative environment</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Recognition</h3>
+                    <p>Your talents and contributions will be valued and recognized</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Competitive Benefits</h3>
+                    <p>Enjoy competitive salary, health benefits, and staff meals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/placeholder.svg?height=60&width=180" alt="HotChix Logo">
+                    <p>Redefining vegetarian luxury dining since 2010</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Subscribe to our Newsletter</h3>
+                    <p>Stay updated with our latest offers and events</p>
+                    <form>
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HotChix. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/staff-registration.js"></script>
+</body>
+</html>

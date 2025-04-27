@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Cuisine - HotChix</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chinese.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="logo">
+            <img src="/placeholder.svg?height=60&width=180" alt="HotChix Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#menu" class="active">Menu</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="#" class="book-table">Book a Table</a></li>
+        </ul>
+        <div class="user-profile">
+            <span id="user-name">Guest</span>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count" class="cart-count">0</span>
+            <div id="cart-dropdown" class="cart-dropdown">
+                <div class="cart-header">
+                    <h3>Your Cart</h3>
+                    <button class="clear-cart" onclick="clearCart()">Clear All</button>
+                </div>
+                <div id="cart-items">
+                    <!-- Cart items will be loaded here -->
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total">₹0.00</span>
+                    </div>
+                    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <!-- Cuisine Header -->
+    <header class="cuisine-header">
+        <div class="cuisine-overlay"></div>
+        <div class="cuisine-title">
+            <h1>Chinese Cuisine</h1>
+            <div class="divider"></div>
+            <p>Wok-tossed perfection with umami flavors</p>
+        </div>
+    </header>
+
+    <!-- Menu Items -->
+    <section class="menu-items">
+        <div class="container">
+            <div class="menu-category">
+                <h2>Appetizers</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Vegetable Spring Rolls">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Vegetable Spring Rolls</h3>
+                                <span class="price">$8.99</span>
+                            </div>
+                            <p>Crispy rolls filled with cabbage, carrots, and bean sprouts, served with sweet chili sauce</p>
+                            <div class="tags">
+                                <span class="tag">Crispy</span>
+                                <span class="tag">Popular</span>
+                            </div>
+                            <button class="add-to-cart" data-id="1" data-name="Vegetable Spring Rolls" data-price="8.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Vegetable Dim Sum">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Vegetable Dim Sum</h3>
+                                <span class="price">$10.99</span>
+                            </div>
+                            <p>Steamed dumplings filled with mixed vegetables and tofu, served with soy dipping sauce</p>
+                            <div class="tags">
+                                <span class="tag">Steamed</span>
+                            </div>
+                            <button class="add-to-cart" data-id="2" data-name="Vegetable Dim Sum" data-price="10.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Crispy Tofu">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Crispy Tofu</h3>
+                                <span class="price">$9.99</span>
+                            </div>
+                            <p>Deep-fried tofu cubes tossed in five-spice powder, served with sweet and sour sauce</p>
+                            <div class="tags">
+                                <span class="tag">Spicy</span>
+                            </div>
+                            <button class="add-to-cart" data-id="3" data-name="Crispy Tofu" data-price="9.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h2>Main Courses</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Vegetable Manchurian">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Vegetable Manchurian</h3>
+                                <span class="price">$16.99</span>
+                            </div>
+                            <p>Vegetable dumplings in a spicy, tangy sauce with bell peppers and onions</p>
+                            <div class="tags">
+                                <span class="tag">Signature</span>
+                                <span class="tag">Spicy</span>
+                            </div>
+                            <button class="add-to-cart" data-id="4" data-name="Vegetable Manchurian" data-price="16.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Mapo Tofu">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Mapo Tofu</h3>
+                                <span class="price">$15.99</span>
+                            </div>
+                            <p>Silken tofu in a spicy bean sauce with Sichuan peppercorns and green onions</p>
+                            <div class="tags">
+                                <span class="tag">Sichuan</span>
+                                <span class="tag">Spicy</span>
+                            </div>
+                            <button class="add-to-cart" data-id="5" data-name="Mapo Tofu" data-price="15.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Buddha's Delight">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Buddha's Delight</h3>
+                                <span class="price">$17.99</span>
+                            </div>
+                            <p>Stir-fried mixed vegetables, tofu, and mushrooms in a light soy sauce</p>
+                            <div class="tags">
+                                <span class="tag">Traditional</span>
+                                <span class="tag">Healthy</span>
+                            </div>
+                            <button class="add-to-cart" data-id="6" data-name="Buddha's Delight" data-price="17.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Kung Pao Vegetables">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Kung Pao Vegetables</h3>
+                                <span class="price">$16.99</span>
+                            </div>
+                            <p>Stir-fried vegetables with peanuts, dried chili peppers, and Sichuan peppercorns</p>
+                            <div class="tags">
+                                <span class="tag">Spicy</span>
+                                <span class="tag">Popular</span>
+                            </div>
+                            <button class="add-to-cart" data-id="7" data-name="Kung Pao Vegetables" data-price="16.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h2>Noodles & Rice</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Vegetable Hakka Noodles">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Vegetable Hakka Noodles</h3>
+                                <span class="price">$14.99</span>
+                            </div>
+                            <p>Stir-fried noodles with mixed vegetables and soy sauce</p>
+                            <div class="tags">
+                                <span class="tag">Popular</span>
+                            </div>
+                            <button class="add-to-cart" data-id="8" data-name="Vegetable Hakka Noodles" data-price="14.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Vegetable Fried Rice">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Vegetable Fried Rice</h3>
+                                <span class="price">$13.99</span>
+                            </div>
+                            <p>Wok-tossed rice with mixed vegetables, soy sauce, and sesame oil</p>
+                            <div class="tags">
+                                <span class="tag">Classic</span>
+                            </div>
+                            <button class="add-to-cart" data-id="9" data-name="Vegetable Fried Rice" data-price="13.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Dan Dan Noodles">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Vegetarian Dan Dan Noodles</h3>
+                                <span class="price">$15.99</span>
+                            </div>
+                            <p>Spicy Sichuan noodles with plant-based protein, chili oil, and Sichuan peppercorns</p>
+                            <div class="tags">
+                                <span class="tag">Spicy</span>
+                                <span class="tag">Sichuan</span>
+                            </div>
+                            <button class="add-to-cart" data-id="10" data-name="Vegetarian Dan Dan Noodles" data-price="15.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h2>Desserts</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Mango Pudding">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Mango Pudding</h3>
+                                <span class="price">$7.99</span>
+                            </div>
+                            <p>Creamy mango-flavored pudding topped with fresh fruit</p>
+                            <div class="tags">
+                                <span class="tag">Sweet</span>
+                                <span class="tag">Refreshing</span>
+                            </div>
+                            <button class="add-to-cart" data-id="11" data-name="Mango Pudding" data-price="7.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Sesame Balls">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Sesame Balls</h3>
+                                <span class="price">$6.99</span>
+                            </div>
+                            <p>Deep-fried glutinous rice balls coated with sesame seeds and filled with sweet red bean paste</p>
+                            <div class="tags">
+                                <span class="tag">Traditional</span>
+                            </div>
+                            <button class="add-to-cart" data-id="12" data-name="Sesame Balls" data-price="6.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cuisine Footer -->
+    <section class="cuisine-cta">
+        <div class="container">
+            <h2>Experience Authentic Chinese Flavors</h2>
+            <p>Indulge in our vegetarian interpretations of classic Chinese dishes prepared with traditional techniques</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button">Book a Table</a>
+                <a href="index.html#menu" class="cta-button secondary">Explore Other Cuisines</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/placeholder.svg?height=60&width=180" alt="HotChix Logo">
+                    <p>Redefining vegetarian luxury dining since 2010</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Subscribe to our Newsletter</h3>
+                    <p>Stay updated with our latest offers and events</p>
+                    <form>
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HotChix. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

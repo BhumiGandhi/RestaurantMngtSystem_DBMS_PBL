@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Cuisine - HotChix</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/italian.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="logo">
+            <img src="/placeholder.svg?height=60&width=180" alt="HotChix Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#menu" class="active">Menu</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="#" class="book-table">Book a Table</a></li>
+        </ul>
+        <div class="user-profile">
+            <span id="user-name">Guest</span>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count" class="cart-count">0</span>
+            <div id="cart-dropdown" class="cart-dropdown">
+                <div class="cart-header">
+                    <h3>Your Cart</h3>
+                    <button class="clear-cart" onclick="clearCart()">Clear All</button>
+                </div>
+                <div id="cart-items">
+                    <!-- Cart items will be loaded here -->
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total">₹0.00</span>
+                    </div>
+                    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <!-- Cuisine Header -->
+    <header class="cuisine-header">
+        <div class="cuisine-overlay"></div>
+        <div class="cuisine-title">
+            <h1>Italian Cuisine</h1>
+            <div class="divider"></div>
+            <p>Authentic pastas and Mediterranean delights</p>
+        </div>
+    </header>
+
+    <!-- Menu Items -->
+    <section class="menu-items">
+        <div class="container">
+            <div class="menu-category">
+                <h2>Antipasti</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Bruschetta">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Bruschetta</h3>
+                                <span class="price">$9.99</span>
+                            </div>
+                            <p>Grilled bread rubbed with garlic and topped with diced tomatoes, fresh basil, and olive oil</p>
+                            <div class="tags">
+                                <span class="tag">Classic</span>
+                            </div>
+                            <button class="add-to-cart" data-id="10" data-name="Bruschetta" data-price="9.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Caprese Salad">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Caprese Salad</h3>
+                                <span class="price">$12.99</span>
+                            </div>
+                            <p>Fresh mozzarella, tomatoes, and sweet basil, seasoned with salt and olive oil</p>
+                            <div class="tags">
+                                <span class="tag">Fresh</span>
+                                <span class="tag">Popular</span>
+                            </div>
+                            <button class="add-to-cart" data-id="11" data-name="Caprese Salad" data-price="12.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Arancini">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Arancini</h3>
+                                <span class="price">$11.99</span>
+                            </div>
+                            <p>Stuffed rice balls coated with breadcrumbs and fried, filled with mozzarella and peas</p>
+                            <div class="tags">
+                                <span class="tag">Crispy</span>
+                            </div>
+                            <button class="add-to-cart" data-id="12" data-name="Arancini" data-price="11.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h2>Pasta & Risotto</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Spaghetti Pomodoro">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Spaghetti Pomodoro</h3>
+                                <span class="price">$16.99</span>
+                            </div>
+                            <p>Classic spaghetti with fresh tomato sauce, garlic, olive oil, and basil</p>
+                            <div class="tags">
+                                <span class="tag">Classic</span>
+                            </div>
+                            <button class="add-to-cart" data-id="13" data-name="Spaghetti Pomodoro" data-price="16.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Fettuccine Alfredo">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Fettuccine Alfredo</h3>
+                                <span class="price">$18.99</span>
+                            </div>
+                            <p>Fettuccine tossed with butter and Parmesan cheese</p>
+                            <div class="tags">
+                                <span class="tag">Creamy</span>
+                                <span class="tag">Popular</span>
+                            </div>
+                            <button class="add-to-cart" data-id="14" data-name="Fettuccine Alfredo" data-price="18.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Risotto ai Funghi">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Risotto ai Funghi</h3>
+                                <span class="price">$19.99</span>
+                            </div>
+                            <p>Creamy Arborio rice with wild mushrooms, white wine, and Parmesan</p>
+                            <div class="tags">
+                                <span class="tag">Signature</span>
+                            </div>
+                            <button class="add-to-cart" data-id="15" data-name="Risotto ai Funghi" data-price="19.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Penne Arrabbiata">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Penne Arrabbiata</h3>
+                                <span class="price">$17.99</span>
+                            </div>
+                            <p>Penne pasta in spicy tomato sauce with garlic, chili, and parsley</p>
+                            <div class="tags">
+                                <span class="tag">Spicy</span>
+                            </div>
+                            <button class="add-to-cart" data-id="16" data-name="Penne Arrabbiata" data-price="17.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h2>Pizza</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Margherita Pizza">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Margherita Pizza</h3>
+                                <span class="price">$15.99</span>
+                            </div>
+                            <p>Classic pizza with tomato sauce, mozzarella, fresh basil, and olive oil</p>
+                            <div class="tags">
+                                <span class="tag">Classic</span>
+                                <span class="tag">Popular</span>
+                            </div>
+                            <button class="add-to-cart" data-id="17" data-name="Margherita Pizza" data-price="15.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Quattro Formaggi">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Quattro Formaggi</h3>
+                                <span class="price">$18.99</span>
+                            </div>
+                            <p>Four cheese pizza with mozzarella, gorgonzola, fontina, and Parmesan</p>
+                            <div class="tags">
+                                <span class="tag">Cheesy</span>
+                            </div>
+                            <button class="add-to-cart" data-id="18" data-name="Quattro Formaggi" data-price="18.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Vegetariana">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Vegetariana</h3>
+                                <span class="price">$17.99</span>
+                            </div>
+                            <p>Pizza topped with assorted fresh vegetables, mozzarella, and tomato sauce</p>
+                            <div class="tags">
+                                <span class="tag">Healthy</span>
+                            </div>
+                            <button class="add-to-cart" data-id="19" data-name="Vegetariana" data-price="17.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h2>Dolci</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Tiramisu">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Tiramisu</h3>
+                                <span class="price">$8.99</span>
+                            </div>
+                            <p>Coffee-flavored Italian dessert made of ladyfingers dipped in coffee, layered with mascarpone cheese</p>
+                            <div class="tags">
+                                <span class="tag">Classic</span>
+                                <span class="tag">Popular</span>
+                            </div>
+                            <button class="add-to-cart" data-id="20" data-name="Tiramisu" data-price="8.99">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="/placeholder.svg?height=200&width=300" alt="Panna Cotta">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>Panna Cotta</h3>
+                                <span class="price">$7.99</span>
+                            </div>
+                            <p>Italian sweetened cream dessert with vanilla and topped with berry compote</p>
+                            <div class="tags">
+                                <span class="tag">Creamy</span>
+                            </div>
+                            <button class="add-to-cart" data-id="21" data-name="Panna Cotta" data-price="7.99">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cuisine Footer -->
+    <section class="cuisine-cta">
+        <div class="container">
+            <h2>Experience Authentic Italian Flavors</h2>
+            <p>Join us for a culinary journey through the heart of Italy with our handcrafted vegetarian dishes</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button">Book a Table</a>
+                <a href="index.html#menu" class="cta-button secondary">Explore Other Cuisines</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/placeholder.svg?height=60&width=180" alt="HotChix Logo">
+                    <p>Redefining vegetarian luxury dining since 2010</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#menu">Menu</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Subscribe to our Newsletter</h3>
+                    <p>Stay updated with our latest offers and events</p>
+                    <form>
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HotChix. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

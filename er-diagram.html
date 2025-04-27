@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotChix Database ER Diagram</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c2c2c;
+            margin-bottom: 30px;
+        }
+        .diagram {
+            width: 100%;
+            overflow-x: auto;
+        }
+        .diagram img {
+            max-width: 100%;
+        }
+        .description {
+            margin-top: 30px;
+            line-height: 1.6;
+        }
+        .entity {
+            margin-bottom: 20px;
+        }
+        .entity h3 {
+            color: #c41e3a;
+            margin-bottom: 10px;
+        }
+        .entity ul {
+            padding-left: 20px;
+        }
+        .entity li {
+            margin-bottom: 5px;
+        }
+        .relationship {
+            margin-top: 30px;
+        }
+        .relationship h3 {
+            color: #2c2c2c;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HotChix Restaurant Management System - ER Diagram</h1>
+        
+        <div class="diagram">
+            <!-- Placeholder for ER diagram image -->
+            <img src="/placeholder.svg?height=600&width=1000" alt="ER Diagram">
+        </div>
+        
+        <div class="description">
+            <h2>Database Schema Description</h2>
+            
+            <div class="entity">
+                <h3>Customer</h3>
+                <ul>
+                    <li><strong>C_id</strong> (Primary Key): Unique identifier for each customer</li>
+                    <li><strong>C_name</strong>: Customer's full name</li>
+                    <li><strong>C_email</strong>: Customer's email address (unique)</li>
+                    <li><strong>C_contact</strong>: Customer's phone number</li>
+                    <li><strong>C_password</strong>: Hashed password for customer login</li>
+                    <li><strong>created_at</strong>: Timestamp when the customer account was created</li>
+                </ul>
+            </div>
+            
+            <div class="entity">
+                <h3>Staff (Managers)</h3>
+                <ul>
+                    <li><strong>S_id</strong> (Primary Key): Unique identifier for each staff member</li>
+                    <li><strong>S_name</strong>: Staff member's full name</li>
+                    <li><strong>S_email</strong>: Staff member's email address (unique)</li>
+                    <li><strong>S_contact</strong>: Staff member's phone number</li>
+                    <li><strong>S_role</strong>: Role of the staff member (manager, admin, receptionist)</li>
+                    <li><strong>S_password</strong>: Hashed password for staff login</li>
+                    <li><strong>created_at</strong>: Timestamp when the staff account was created</li>
+                </ul>
+            </div>
+            
+            <div class="entity">
+                <h3>Waiter</h3>
+                <ul>
+                    <li><strong>W_id</strong> (Primary Key): Unique identifier for each waiter</li>
+                    <li><strong>W_name</strong>: Waiter's full name</li>
+                    <li><strong>W_email</strong>: Waiter's email address (unique)</li>
+                    <li><strong>W_contact</strong>: Waiter's phone number</li>
+                    <li><strong>W_password</strong>: Hashed password for waiter login</li>
+                    <li><strong>W_experience</strong>: Years of experience</li>
+                    <li><strong>W_shift</strong>: Work shift (morning, evening, night)</li>
+                    <li><strong>created_at</strong>: Timestamp when the waiter account was created</li>
+                </ul>
+            </div>
+            
+            <div class="entity">
+                <h3>Chef</h3>
+                <ul>
+                    <li><strong>CH_id</strong> (Primary Key): Unique identifier for each chef</li>
+                    <li><strong>CH_name</strong>: Chef's full name</li>
+                    <li><strong>CH_email</strong>: Chef's email address (unique)</li>
+                    <li><strong>CH_contact</strong>: Chef's phone number</li>
+                    <li><strong>CH_speciality</strong>: Chef's cuisine specialization</li>
+                    <li><strong>CH_password</strong>: Hashed password for chef login</li>
+                    <li><strong>CH_experience</strong>: Years of experience</li>
+                    <li><strong>CH_shift</strong>: Work shift (morning, evening, night)</li>
+                    <li><strong>created_at</strong>: Timestamp when the chef account was created</li>
+                </ul>
+            </div>
+            
+            <div class="entity">
+                <h3>MenuCategory</h3>
+                <ul>
+                    <li><strong>category_id</strong> (Primary Key): Unique identifier for each menu category</li>
+                    <li><strong>category_name</strong>: Name of the category</li>
+                    <li><strong>description</strong>: Description of the category</li>
+                </ul>
+            </div>
+            
+            <div class="entity">
+                <h3>MenuItem</h3>
+                <ul>
+                    <li><strong>item_id</strong> (Primary Key): Unique identifier for each menu item</li>
+                    <li><strong>category_id</strong> (Foreign Key): Reference to MenuCategory</li>
+                    <li><strong>item_name</strong>: Name of the menu item</li>
+                    <li><strong>description</strong>: Description of the menu item</li>
+                    <li><strong>price</strong>: Price of the menu item</li>
+                    <li><strong>is_veg</strong>: Boolean indicating if the item is vegetarian</li>
+                    <li><strong>is_available</strong>: Boolean indicating if the item is currently available</li>
+                    <li><strong>image_url</strong>: URL to the image of the menu item</li>
+                    <li><strong>chef_id</strong> (Foreign Key): Reference to Chef who specializes in this item</li>
+                </ul>
+            </div>
+            
+            <div class="entity">
+                <h3>RestaurantTable</h3>
+                <ul>
+                    <li><strong>table_id</strong> (Primary Key): Unique identifier for each table</li>
+                    <li><strong>table_number</strong>: Table number in the restaurant</li>
+                    <li><strong>capacity</strong>: Number of people the table can accommodate</li>
+                    <li><strong>is_available</strong>: Boolean indicating if the table is currently available</li>
+                </ul>
+            </div>
+            
+            <div class="entity">
+                <h3>Order</h3>
+                <ul>
+                    <li><strong>Order_Id</strong> (Primary Key): Unique identifier for each order</li>
+                    <li><strong>C_id</strong> (Foreign Key): Reference to Customer</li>
+                    <li><strong>W_id</strong> (Foreign Key): Reference to Waiter</li>
+                    <li><strong>S_id</strong> (Foreign Key): Reference to Staff</li>
+                    <li><strong>CH_id</strong> (Foreign Key): Reference to Chef</li>
+                    <li><strong>table_id</strong> (Foreign Key): Reference to RestaurantTable</li>
+                    <li><strong>Order_Date_Time</strong>: Timestamp when the order was placed</li>
+                    <li><strong>Order_Amount</strong>: Total amount of the order</li>
+                    <li><strong>Order_Status</strong>: Status of the order (Pending, Confirmed, Preparing, Ready, Served, Paid, Cancelled)</li>
+                    <li><strong>special_instructions</strong>: Any special instructions for the order</li>
+                    <li><strong>payment_method</strong>: Method of payment (Cash, Credit Card, Debit Card, Online)</li>
+                    <li><strong>payment_status</strong>: Status of payment (Pending, Completed, Failed)</li>
+                </ul>
+            </div>
+            
+            <div class="entity">
+                <h3>OrderItem</h3>
+                <ul>
+                    <li><strong>order_item_id</strong> (Primary Key): Unique identifier for each order item</li>
+                    <li><strong>Order_Id</strong> (Foreign Key): Reference to Order</li>
+                    <li><strong>item_id</strong> (Foreign Key): Reference to MenuItem</li>
+                    <li><strong>quantity</strong>: Quantity of the menu item ordered</li>
+                    <li><strong>item_price</strong>: Price of the menu item at the time of ordering</li>
+                    <li><strong>special_instructions</strong>: Any special instructions for the specific item</li>
+                </ul>
+            </div>
+            
+            <div class="entity">
+                <h3>Reservation</h3>
+                <ul>
+                    <li><strong>reservation_id</strong> (Primary Key): Unique identifier for each reservation</li>
+                    <li><strong>C_id</strong> (Foreign Key): Reference to Customer</li>
+                    <li><strong>table_id</strong> (Foreign Key): Reference to RestaurantTable</li>
+                    <li><strong>reservation_date</strong>: Date of the reservation</li>
+                    <li><strong>reservation_time</strong>: Time of the reservation</li>
+                    <li><strong>num_guests</strong>: Number of guests</li>
+                    <li><strong>status</strong>: Status of the reservation (Pending, Confirmed, Cancelled)</li>
+                    <li><strong>special_request</strong>: Any special requests for the reservation</li>
+                    <li><strong>created_at</strong>: Timestamp when the reservation was created</li>
+                </ul>
+            </div>
+            
+            <div class="relationship">
+                <h3>Entity Relationships</h3>
+                <ul>
+                    <li><strong>Customer to Order</strong>: One-to-Many (One customer can place many orders)</li>
+                    <li><strong>Customer to Reservation</strong>: One-to-Many (One customer can make many reservations)</li>
+                    <li><strong>Waiter to Order</strong>: One-to-Many (One waiter can serve many orders)</li>
+                    <li><strong>Staff to Order</strong>: One-to-Many (One staff member can manage many orders)</li>
+                    <li><strong>Chef to Order</strong>: One-to-Many (One chef can prepare many orders)</li>
+                    <li><strong>Chef to MenuItem</strong>: One-to-Many (One chef can specialize in many menu items)</li>
+                    <li><strong>MenuCategory to MenuItem</strong>: One-to-Many (One category can have many menu items)</li>
+                    <li><strong>Order to OrderItem</strong>: One-to-Many (One order can have many order items)</li>
+                    <li><strong>MenuItem to OrderItem</strong>: One-to-Many (One menu item can be in many order items)</li>
+                    <li><strong>RestaurantTable to Order</strong>: One-to-Many (One table can have many orders)</li>
+                    <li><strong>RestaurantTable to Reservation</strong>: One-to-Many (One table can have many reservations)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

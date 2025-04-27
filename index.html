@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotChix - Pure Vegetarian Luxury Restaurant</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container" id="auth-container">
+        <div class="glass-form">
+            <div class="form-toggle">
+                <button class="toggle-btn active" onclick="toggleForm('login')">Login</button>
+                <button class="toggle-btn" onclick="toggleForm('register')">Register</button>
+            </div>
+            
+            <div class="form-container">
+                <form id="login-form" class="active-form">
+                    <h2>Welcome Back</h2>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox"> Remember me</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <button type="button" class="submit-btn" onclick="authenticateUser()">Login</button>
+                </form>
+                
+                <form id="register-form">
+                    <h2>Create Account</h2>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="button" class="submit-btn" onclick="registerUser()">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content" id="main-content" style="display: none;">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/placeholder.svg?height=60&width=180" alt="HotChix Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="staff-registration.html">Join Our Team</a></li>
+                <li><a href="#" class="book-table">Book a Table</a></li>
+            </ul>
+            <div class="user-profile">
+                <span id="user-name">Guest</span>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+
+        <!-- Hero Section with Parallax -->
+        <section id="home" class="hero-section">
+            <div class="parallax-bg"></div>
+            <div class="hero-content">
+                <h1>Experience Pure Vegetarian Luxury</h1>
+                <p>Indulge in exquisite flavors crafted with passion and precision</p>
+                <p>Made by Bhumika (1/234/SET/BCS/185), Jeetika(1/234/SET/BCS/197) & Hitesh(1/234/SET/BCS/208) as a part of DBMS PBL</p>
+                
+                <button class="cta-button">Explore Our Menu</button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Story</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="/placeholder.svg?height=500&width=400" alt="Restaurant Interior">
+                    </div>
+                    <div class="about-text">
+                        <h3>A Culinary Journey</h3>
+                        <p>Founded in 2010, HotChix has been at the forefront of redefining vegetarian cuisine. Our commitment to excellence and innovation has made us a premier destination for food enthusiasts.</p>
+                        <p>Every dish at HotChix tells a story - a story of tradition, passion, and the finest ingredients sourced from around the world. Our chefs blend time-honored recipes with contemporary techniques to create an unforgettable dining experience.</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number">12+</span>
+                                <span class="stat-text">Years of Excellence</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">6</span>
+                                <span class="stat-text">Cuisine Types</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-text">Signature Dishes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="menu-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Exquisite Menu</h2>
+                    <div class="divider"></div>
+                    <p>Explore our diverse culinary offerings from around the world</p>
+                </div>
+                <div class="cuisine-grid">
+                    <a href="north-indian.html" class="cuisine-card">
+                        <div class="cuisine-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="North Indian Cuisine">
+                        </div>
+                        <div class="cuisine-info">
+                            <h3>North Indian</h3>
+                            <p>Rich, aromatic flavors with exotic spices</p>
+                        </div>
+                    </a>
+                    <a href="italian.html" class="cuisine-card">
+                        <div class="cuisine-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Italian Cuisine">
+                        </div>
+                        <div class="cuisine-info">
+                            <h3>Italian</h3>
+                            <p>Authentic pastas and Mediterranean delights</p>
+                        </div>
+                    </a>
+                    <a href="mexican.html" class="cuisine-card">
+                        <div class="cuisine-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Mexican Cuisine">
+                        </div>
+                        <div class="cuisine-info">
+                            <h3>Mexican</h3>
+                            <p>Bold flavors with a spicy kick</p>
+                        </div>
+                    </a>
+                    <a href="continental.html" class="cuisine-card">
+                        <div class="cuisine-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Continental Cuisine">
+                        </div>
+                        <div class="cuisine-info">
+                            <h3>Continental</h3>
+                            <p>Refined European culinary traditions</p>
+                        </div>
+                    </a>
+                    <a href="chinese.html" class="cuisine-card">
+                        <div class="cuisine-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Chinese Cuisine">
+                        </div>
+                        <div class="cuisine-info">
+                            <h3>Chinese</h3>
+                            <p>Wok-tossed perfection with umami flavors</p>
+                        </div>
+                    </a>
+                    <a href="south-indian.html" class="cuisine-card">
+                        <div class="cuisine-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="South Indian Cuisine">
+                        </div>
+                        <div class="cuisine-info">
+                            <h3>South Indian</h3>
+                            <p>Traditional delicacies with coconut and curry leaves</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Contact Us</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Location</h3>
+                                <p>123 Luxury Avenue, Gourmet District, City</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h3>Reservations</h3>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Opening Hours</h3>
+                                <p>Mon-Fri: 11am - 11pm</p>
+                                <p>Sat-Sun: 10am - 12am</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@hotchix.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="/placeholder.svg?height=60&width=180" alt="HotChix Logo">
+                        <p>Redefining vegetarian luxury dining since 2010</p>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-newsletter">
+                        <h3>Subscribe to our Newsletter</h3>
+                        <p>Stay updated with our latest offers and events</p>
+                        <form>
+                            <input type="email" placeholder="Your Email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="footer-social">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2023 HotChix. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
