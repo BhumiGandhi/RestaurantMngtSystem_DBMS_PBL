@@ -84,17 +84,9 @@ And relationships:
 - Has (Waiter to Order)
 - Prepared By (Chef to Order)
 
-## Future Enhancements
-
-- Complete all cuisine pages
-- Implement real-time order tracking
-- Add payment gateway integration
-- Develop mobile application
-- Implement analytics dashboard
-
 ## Credits
 
-- Developed by: [Your Name]
+- Developed by: Bhumika , Jeetika , Hitesh
 - Design: Luxury restaurant theme with glassmorphism effects
 - Icons: Font Awesome
 - Fonts: Playfair Display, Poppins
